@@ -1,0 +1,21 @@
+# Environment / secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Dependencies (none used by this static site, but excluded defensively)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+
+# Logs / temp
+*.log
+*.tmp
