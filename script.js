@@ -9,6 +9,7 @@
     toggle.addEventListener("click", function () {
       var isOpen = links.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
       document.body.style.overflow = isOpen ? "hidden" : "";
     });
 
@@ -16,6 +17,7 @@
       link.addEventListener("click", function () {
         links.classList.remove("is-open");
         toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open menu");
         document.body.style.overflow = "";
       });
     });
