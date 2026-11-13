@@ -1,6 +1,8 @@
 (function () {
   "use strict";
 
+  document.documentElement.classList.add("js-enabled");
+
   /* Mobile navigation toggle */
   var toggle = document.querySelector(".menu-toggle");
   var links = document.querySelector(".nav-links");
