@@ -65,14 +65,32 @@
     });
   }
 
-  /* Contact form: mailto submission feedback (no fake "sent" claims) */
+  /* Contact form: prepare a clear email without claiming it was sent. */
   var form = document.querySelector(".contact-form[data-mailto-form]");
   if (form) {
     var status = form.querySelector(".form-status");
-    form.addEventListener("submit", function () {
-      if (!status) return;
-      status.textContent = "Opening your email app with these details filled in — please press send there to reach us.";
-      status.classList.add("is-visible", "success");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      var fields = Array.from(new FormData(form).entries());
+      var body = fields
+        .map(function (field) {
+          return field[0] + ": " + String(field[1]).trim();
+        })
+        .join("\n");
+      var serviceField = form.querySelector('[name="Service Needed"]');
+      var service = serviceField && serviceField.value ? serviceField.value : "Solar assessment";
+      var subject = "Website enquiry - " + service;
+      var mailto = "mailto:sales@proenergysols.co.za?subject=" +
+        encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+
+      if (status) {
+        status.textContent = "Your email app should open with this enquiry prepared. Review the details and press Send. If no email app opens, please use the phone or WhatsApp links on this page.";
+        status.classList.add("is-visible");
+      }
+
+      window.location.href = mailto;
     });
   }
 })();
