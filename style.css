@@ -1247,20 +1247,25 @@ p { margin: 0 0 1em; }
   border: 1px solid var(--border);
 }
 
-/* scroll-reveal */
+/* Scroll reveal is progressive enhancement: content stays visible without JavaScript. */
 .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.js-enabled .reveal {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.reveal.is-visible {
+.js-enabled .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal, .js-enabled .reveal { opacity: 1; transform: none; transition: none; }
 }
 
 /* ==========================================================================
