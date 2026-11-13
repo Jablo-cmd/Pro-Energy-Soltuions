@@ -110,7 +110,7 @@
           <article class="panel reveal">
             <h3>Request your solar assessment</h3>
             <p>Answer a few quick questions and your email app will open with the details ready to send to sales@proenergysols.co.za.</p>
-            <form class="contact-form" action="mailto:sales@proenergysols.co.za" method="post" enctype="text/plain" data-mailto-form novalidate>
+            <form class="contact-form" action="mailto:sales@proenergysols.co.za" method="post" enctype="text/plain" data-mailto-form>
               <p class="form-step-label">What do you need help with? <span class="req" aria-hidden="true">*</span></p>
               <label>
                 <span class="visually-hidden">Service needed</span>
@@ -144,7 +144,7 @@
                 </label>
                 <label>
                   <span class="visually-hidden">Suburb or city</span>
-                  <input type="text" name="Location" placeholder="Suburb / city" required />
+                  <input type="text" name="Location" placeholder="Suburb / city" autocomplete="address-level2" required />
                 </label>
               </div>
 
@@ -166,16 +166,16 @@
               <div class="field-grid">
                 <label>
                   Full name
-                  <input type="text" name="Full Name" placeholder="Your name" required />
+                  <input type="text" name="Full Name" placeholder="Your name" autocomplete="name" required />
                 </label>
                 <label>
                   Phone number
-                  <input type="tel" name="Phone" placeholder="063 122 6552" required />
+                  <input type="tel" name="Phone" placeholder="063 122 6552" autocomplete="tel" inputmode="tel" required />
                 </label>
               </div>
               <label>
                 Email address
-                <input type="email" name="Email" placeholder="you@example.com" required />
+                <input type="email" name="Email" placeholder="you@example.com" autocomplete="email" required />
               </label>
 
               <p class="form-step-label">Optional details</p>
@@ -194,7 +194,7 @@
                 <textarea name="Message" rows="4" placeholder="Tell us more about your project or current power situation, if useful."></textarea>
               </label>
 
-              <p class="form-note">Tell us what you're trying to achieve. We'll assess your requirements and help you understand the right solution. We only use these details to respond to your enquiry.</p>
+              <p class="form-note" id="form-note">Tell us what you're trying to achieve. We'll assess your requirements and help you understand the right solution. We only use these details to respond to your enquiry.</p>
 
               <button class="btn btn-primary" type="submit">Request My Solar Assessment</button>
               <p class="form-status" role="status" aria-live="polite"></p>
